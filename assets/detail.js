@@ -1,6 +1,8 @@
 // // Add SDK credentials
 
-const APIURL = 'http://localhost:8080/api/';
+const { APIURL } = require("../utils/constantes");
+
+
 // REPLACE WITH YOUR PUBLIC KEY AVAILABLE IN: https://developers.mercadopago.com/panel
 const PUBLIC_KEY = 'TEST-efcbcded-34c5-494c-9a53-fbaa41af4f41';
 const mercadopago = new MercadoPago(PUBLIC_KEY, {

@@ -2,6 +2,7 @@
 //SIN EMBARGO NO CUENTA CON TODAS LAS MEDIDAS DE SEGURIDAD o VALIDACIONES.
 
 const mercadopago = require('mercadopago');
+const { FRONTURL } = require('../utils/constantes');
 mercadopago.configure({
 	access_token: process.env.ACCESS_TOKEN_MERCADOPAGO,
 	integrator_id: process.env.INTEGRATOR_ID_MERCADOPAGO,
@@ -30,9 +31,9 @@ const createPreference = async (req, res) => {
 			//Estas son las rutas a las que te redigira luego de pagar
 			//segun sea el caso.
 			back_urls: {
-				success: 'http://localhost:8080/success',
-				failure: 'http://localhost:8080/failure',
-				pending: 'http://localhost:8080/pending',
+				success: FRONTURL + 'success',
+				failure: FRONTURL + 'failure',
+				pending: FRONTURL + 'pending',
 			},
 			auto_return: 'approved',
 			payment_methods: {
