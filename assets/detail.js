@@ -16,10 +16,33 @@ const img = document.getElementById('product-image');
 // Handle call to backend and generate preference.
 checkoutBTN.onclick = () => {
 	checkoutBTN.setAttribute('disabled', true);
+	/**
+	 * Nombre y Apellido: Lalo Landa
+B. Email: El email del test-user pagador entregado en este documento.
+C. Código de área: 11
+D. Teléfono: 22223333
+	 */
 	const orderData = {
 		quantity: quantity.value,
 		unit_price: price.innerHTML,
 		title,
+		idProd: 1234,
+		desc: 'Dispositivo móvil de Tienda e-commerce',
+		img: img.src,
+		payer: {
+			name: 'Lalo',
+			surname: 'Landa',
+			email: '',
+			phone: {
+				area_code: '11',
+				number: '22223333',
+			},
+			address: {
+				street_name: 'Falsa',
+				street_number: 123,
+				zip_code: '1111',
+			},
+		},
 	};
 
 	fetch(APIURL + 'mercadopago/create_preference', {
