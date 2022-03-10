@@ -1,4 +1,3 @@
-// // Add SDK credentials
 
 const { APIURL, MP_PUBLIC_KEY } = require('../utils/constantes');
 
@@ -23,6 +22,7 @@ B. Email: El email del test-user pagador entregado en este documento.
 C. Código de área: 11
 D. Teléfono: 22223333
 	 */
+	console.log("wenaaa")
 	const orderData = {
 		quantity: quantity.value,
 		unit_price: price.innerHTML,
