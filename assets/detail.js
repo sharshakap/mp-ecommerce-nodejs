@@ -32,10 +32,10 @@ D. Teléfono: 22223333
 		payer: {
 			name: 'Lalo',
 			surname: 'Landa',
-			email: '',
+			email: 'test_user_51992233@testuser.com',
 			phone: {
 				area_code: '11',
-				number: '22223333',
+				number: 22223333,
 			},
 			address: {
 				street_name: 'Falsa',
@@ -68,26 +68,6 @@ D. Teléfono: 22223333
 			alert('Unexpected error');
 			checkoutBTN.setAttribute('disabled', false);
 		});
-
-	// const resp = await fetch(APIURL + 'mercadopago/create_preference', {
-	// 	method: 'POST',
-	// 	headers: {
-	// 		'Content-Type': 'application/json',
-	// 	},
-	// 	body: JSON.stringify(orderData),
-	// });
-	// const data = await resp.json();
-	// if (data.ok) {
-	// 	createCheckoutButton(data.id);
-
-	// 	$('.shopping-cart').fadeOut(500);
-	// 	setTimeout(() => {
-	// 		$('.container_payment').show(500).fadeIn();
-	// 	}, 500);
-	// 	return;
-	// }
-	// alert('Unexpected error');
-	// checkoutBTN.setAttribute('disabled', false);
 };
 
 // Create preference when click on checkout button

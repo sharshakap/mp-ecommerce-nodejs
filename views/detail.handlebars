@@ -47,7 +47,8 @@
                 <h3>Carrito</h3>
                 <div class="summary-item"><span class="text">Subtotal</span><span class="price" id="cart-total"></span>
                 </div>
-                <button class="btn btn-primary btn-lg btn-block" id="checkout-btn">Ir a pagar</button>
+                <button class="btn btn-primary btn-lg btn-block" id="checkout-btn">Pagar la
+                  compra</button>
               </div>
             </div>
           </div>
@@ -59,15 +60,15 @@
     <section class="payment-form dark">
       <div class="container_payment">
         <div class="block-heading">
-          <h2>Checkout Payment</h2>
-          <p>This is an example of a Mercado Pago integration</p>
+          <h2>Comprar los productos</h2>
+          <p>Integración BASICA de pago con mercadopago</p>
         </div>
         <div class="form-payment">
           <div class="products">
-            <h2 class="title">Summary</h3>
+            <h2 class="title">Resumen</h3>
               <div class="item">
                 <span class="price" id="summary-price"></span>
-                <p class="item-name">Book x <span id="summary-quantity"></span></p>
+                <p class="item-name">{{title}} x <span id="summary-quantity"></span></p>
               </div>
               <div class="total">Total<span class="price" id="summary-total"></span></div>
           </div>
@@ -101,5 +102,4 @@
 <script src="/assets/detail.js"></script>
 <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
 <link rel="stylesheet" type="text/css" href="/assets/detail.css">
-{{!--
-<script src="https://www.mercadopago.com/v2/security.js" view="item"></script> --}}
+<script src="https://www.mercadopago.com/v2/security.js" view="item"></script>
