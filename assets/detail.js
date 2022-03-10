@@ -1,5 +1,6 @@
-
-const { APIURL, MP_PUBLIC_KEY } = require('../utils/constantes');
+const PORT = 8080;
+const APIURL = `http:///localhost:${PORT}/api/`;
+const MP_PUBLIC_KEY = 'TEST-efcbcded-34c5-494c-9a53-fbaa41af4f41';
 
 // REPLACE WITH YOUR PUBLIC KEY AVAILABLE IN: https://developers.mercadopago.com/panel
 const PUBLIC_KEY = MP_PUBLIC_KEY;
@@ -12,9 +13,10 @@ let quantity = document.getElementById('quantity');
 let price = document.getElementById('unit-price');
 const title = document.getElementById('product-description').innerHTML;
 const img = document.getElementById('product-image');
-
+// console.log("btn",checkoutBTN);
 // Handle call to backend and generate preference.
 checkoutBTN.onclick = () => {
+	console.log("WEENA")
 	checkoutBTN.setAttribute('disabled', true);
 	/**
 	 * Nombre y Apellido: Lalo Landa
@@ -22,7 +24,7 @@ B. Email: El email del test-user pagador entregado en este documento.
 C. Código de área: 11
 D. Teléfono: 22223333
 	 */
-	console.log("wenaaa")
+	console.log('wenaaa');
 	const orderData = {
 		quantity: quantity.value,
 		unit_price: price.innerHTML,
