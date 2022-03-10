@@ -16,7 +16,6 @@ const createPreference = async (req, res) => {
 		//Integrator ID
 		const preference = {
 			// notification_url: process.env.NOTIFICATION_URL,
-			notification_url: 'https://nodeapp.free.beeceptor.com',
 			external_reference: 'brsmilanez@hotmail.com',
 
 			items: [
@@ -48,10 +47,10 @@ const createPreference = async (req, res) => {
 						id: 'atm',
 					},
 				],
+				//max cuotas
 				installments: 6,
 			},
 			// binary_mode: true,
-			//max cuotas
 		};
 		const addPreference = await mercadopago.preferences.create(preference);
 		const id = addPreference.body.id;
@@ -67,6 +66,26 @@ const createPreference = async (req, res) => {
 		});
 	}
 };
+
+const notification = (req, res) => {
+	try {
+		const { topic, id } = req.body;
+		console.log('notification:');
+		console.log({ topic, id });
+		console.log(req.body);
+		return res.json({
+			ok: true,
+			topic,
+			id,
+		});
+	} catch (error) {
+		console.log(error);
+		return res.status(500).json({
+			ok: false,
+			msg: 'Hubo un error al recibir la notificacion',
+		});
+	}
+};
 const feedback = (req, res) => {
 	const { payment_id, status, merchant_order_id } = req.query;
 	console.log('feedback');
@@ -79,4 +98,4 @@ const feedback = (req, res) => {
 	});
 };
 
-module.exports = { createPreference, feedback };
+module.exports = { createPreference, feedback, notification };
