@@ -1,8 +1,6 @@
-console.log('weeena');
-
 // // Add SDK credentials
 
-const APIURL = '/';
+const APIURL = 'http://localhost:8080/api/';
 // REPLACE WITH YOUR PUBLIC KEY AVAILABLE IN: https://developers.mercadopago.com/panel
 const PUBLIC_KEY = 'TEST-efcbcded-34c5-494c-9a53-fbaa41af4f41';
 const mercadopago = new MercadoPago(PUBLIC_KEY, {
@@ -23,31 +21,50 @@ checkoutBTN.onclick = () => {
 		unit_price: price.innerHTML,
 		title,
 	};
-	console.log(orderData);
 
-	// fetch(APIURL + 'mercadopago/create_preference', {
+	fetch(APIURL + 'mercadopago/create_preference', {
+		method: 'POST',
+		headers: {
+			'Content-Type': 'application/json',
+		},
+		body: JSON.stringify(orderData),
+	})
+		.then((response) => {
+			return response.json();
+		})
+		.then((preference) => {
+			createCheckoutButton(preference.id);
+
+			$('.shopping-cart').fadeOut(500);
+			setTimeout(() => {
+				$('.container_payment').show(500).fadeIn();
+			}, 500);
+		})
+		.catch((err) => {
+			console.log(err);
+			alert('Unexpected error');
+			checkoutBTN.setAttribute('disabled', false);
+		});
+
+	// const resp = await fetch(APIURL + 'mercadopago/create_preference', {
 	// 	method: 'POST',
 	// 	headers: {
 	// 		'Content-Type': 'application/json',
 	// 	},
 	// 	body: JSON.stringify(orderData),
-	// })
-	// 	.then((response) => {
-	// 		return response.json();
-	// 	})
-	// 	.then((preference) => {
-	// 		createCheckoutButton(preference.id);
+	// });
+	// const data = await resp.json();
+	// if (data.ok) {
+	// 	createCheckoutButton(data.id);
 
-	// 		$('.shopping-cart').fadeOut(500);
-	// 		setTimeout(() => {
-	// 			$('.container_payment').show(500).fadeIn();
-	// 		}, 500);
-	// 	})
-	// 	.catch((err) => {
-	// 		console.log(err);
-	// 		alert('Unexpected error');
-	// 		checkoutBTN.setAttribute('disabled', false);
-	// 	});
+	// 	$('.shopping-cart').fadeOut(500);
+	// 	setTimeout(() => {
+	// 		$('.container_payment').show(500).fadeIn();
+	// 	}, 500);
+	// 	return;
+	// }
+	// alert('Unexpected error');
+	// checkoutBTN.setAttribute('disabled', false);
 };
 
 // Create preference when click on checkout button
