@@ -1,95 +1,124 @@
-
 <div class="as-search-wrapper" role="main">
-    <div class="as-navtuck-wrapper">
-        <div class="as-l-fullwidth  as-navtuck" data-events="event52">
-            <div>
-                <div class="pd-billboard pd-category-header">
-                    <div class="pd-l-plate-scale">
-                        <div class="pd-billboard-background">
-                            <img src="./assets/music-audio-alp-201709" alt="" width="1440" height="320" data-scale-params-2="wid=2880&amp;hei=640&amp;fmt=jpeg&amp;qlt=95&amp;op_usm=0.5,0.5&amp;.v=1503948581306" class="pd-billboard-hero ir">
-                        </div>
-                        <div class="pd-billboard-info">
-                            <h1 class="pd-billboard-header pd-util-compact-small-18">Tienda e-commerce</h1>
-                        </div>
-                    </div>
-                </div>
+  <div class="as-navtuck-wrapper">
+    <div class="as-l-fullwidth  as-navtuck" data-events="event52">
+      <div>
+        <div class="pd-billboard pd-category-header">
+          <div class="pd-l-plate-scale">
+            <div class="pd-billboard-background">
+              <img src="./assets/music-audio-alp-201709" alt="" width="1440" height="320"
+                data-scale-params-2="wid=2880&amp;hei=640&amp;fmt=jpeg&amp;qlt=95&amp;op_usm=0.5,0.5&amp;.v=1503948581306"
+                class="pd-billboard-hero ir">
             </div>
-        </div>
-    </div>
-    <div class="as-search-results as-filter-open as-category-landing as-desktop" id="as-search-results">
-
-        <div id="accessories-tab" class="as-accessories-details">
-            <div class="as-accessories" id="as-accessories">
-                <div class="as-accessories-header">
-                    <div class="as-search-results-count">
-                        <span class="as-search-results-value"></span>
-                    </div>
-                </div>
-                <div class="as-searchnav-placeholder" style="height: 77px;">
-                    <div class="row as-search-navbar" id="as-search-navbar" style="width: auto;">
-                        <div class="as-accessories-filter-tile column large-6 small-3">
-
-                            <button class="as-filter-button" aria-expanded="true" aria-controls="as-search-filters" type="button">
-                                <h2 class=" as-filter-button-text">
-                                    Smartphones
-                                </h2>
-                            </button>
-
-
-                        </div>
-
-                    </div>
-                </div>
-                <div class="as-accessories-results  as-search-desktop">
-                    <div class="width:60%">
-                        <div class="as-producttile-tilehero with-paddlenav " style="float:left;">
-                            <div class="as-dummy-container as-dummy-img">
-
-                                <img src="./assets/wireless-headphones" class="ir ir item-image as-producttile-image  " style="max-width: 70%;max-height: 70%;"alt="" width="445" height="445">
-                            </div>
-                            <div class="images mini-gallery gal5 ">
-                            
-
-                                <div class="as-isdesktop with-paddlenav with-paddlenav-onhover">
-                                    <div class="clearfix image-list xs-no-js as-util-relatedlink relatedlink" data-relatedlink="6|Powerbeats3 Wireless Earphones - Neighborhood Collection - Brick Red|MPXP2">
-                                        <div class="as-tilegallery-element as-image-selected">
-                                            <div class=""></div>
-                                            <img src="./assets/003.jpg" class="ir ir item-image as-producttile-image" alt="" width="445" height="445" style="content:-webkit-image-set(url({{ img }}) 2x);">
-                                        </div>
-                                        
-                                    </div>
-
-                                    
-                                </div>
-
-                                
-
-                            </div>
-
-                        </div>
-                        <div class="as-producttile-info" style="float:left;min-height: 168px;">
-                            <div class="as-producttile-titlepricewraper" style="min-height: 128px;">
-                                <div class="as-producttile-title">
-                                    <h3 class="as-producttile-name">
-                                        <p class="as-producttile-tilelink">
-                                            <span data-ase-truncate="2"> {{ title }} </span>
-                                        </p>
-
-                                    </h3>
-                                </div>
-                                <h3 >
-                                    {{ price }}
-                                </h3>
-                                <h3 >
-                                    {{ unit }}
-                                </h3>
-                            </div>
-                            <button type="submit" class="mercadopago-button" formmethod="post">Pagar</button>
-                        </div>
-                    </div>
-                </div>
+            <div class="pd-billboard-info">
+              <h1 class="pd-billboard-header pd-util-compact-small-18">Tienda e-commerce</h1>
             </div>
+          </div>
         </div>
+      </div>
     </div>
+  </div>
+  <div class="as-search-results as-filter-open as-category-landing as-desktop" id="as-search-results">
+    {{!-- --}}
+    <section class="shopping-cart dark">
+      <br>
+      <div class="container" id="container">
+        <a href="javascript:history.back()"> Volver Atrás</a>
+        <div class="block-heading">
+          <h2>Carrito de compra</h2>
+          <p>{{title}}</p>
+        </div>
+        <div class="content">
+          <div class="row">
+            <div class="col-md-12 col-lg-8">
+              <div class="items">
+                <div class="product">
+                  <div class="info">
+                    <div class="product-details">
+                      <div class="row justify-content-md-center">
+                        <div class="col-md-3">
+                          <img id="product-image" class="img-fluid mx-auto d-block image" src={{img}}>
+                        </div>
+                        <div class="col-md-4 product-detail">
+                          <h5>Producto</h5>
+                          <div class="product-info">
+                            <p><b>Descripción: </b><span id="product-description">{{title}}</span><br>
+                              <b>Precio:</b> $ <span id="unit-price">{{price}}</span>
+                              <br>
+                              <b>Disponible:</b> <span>1</span>
+                            </p>
+                          </div>
+                        </div>
+                        <div class="col-md-3 product-detail">
+                          <label for="quantity">
+                            <h5>Cantidad</h5>
+                          </label>
+                          <input type="number" id="quantity" value="1" min="1" max="1" class="form-control">
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-12 col-lg-4">
+              <div class="summary">
+                <h3>Cart</h3>
+                <div class="summary-item"><span class="text">Subtotal</span><span class="price" id="cart-total"></span>
+                </div>
+                <button class="btn btn-primary btn-lg btn-block" id="checkout-btn">Checkout</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <br>
+    <!--payment-->
+    <section class="payment-form dark">
+      <div class="container_payment">
+        <div class="block-heading">
+          <h2>Checkout Payment</h2>
+          <p>This is an example of a Mercado Pago integration</p>
+        </div>
+        <div class="form-payment">
+          <div class="products">
+            <h2 class="title">Summary</h3>
+              <div class="item">
+                <span class="price" id="summary-price"></span>
+                <p class="item-name">Book x <span id="summary-quantity"></span></p>
+              </div>
+              <div class="total">Total<span class="price" id="summary-total"></span></div>
+          </div>
+          <div class="payment-details">
+            <div class="form-group col-sm-12">
+              <div id="button-checkout">
+              </div>
+              <a id="go-back">
+                <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 10 10" class="chevron-left">
+                  <path fill="#009EE3" fill-rule="nonzero" id="chevron_left"
+                    d="M7.05 1.4L6.2.552 1.756 4.997l4.449 4.448.849-.848-3.6-3.6z"></path>
+                </svg>
+                Ir a comprar
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    {{!-- --}}
+  </div>
 </div>
-   
+<footer>
+  <div class="footer_logo"><img id="horizontal_logo" src="/assets/horizontal_logo.png"></div>
+  <div class="footer_text">
+    <p>Developers Site:</p>
+    <p><a href="https://developers.mercadopago.com" target="_blank">https://developers.mercadopago.com</p>
+  </div>
+</footer>
+{{!-- --}}
+<script src="https://sdk.mercadopago.com/js/v2"></script>
+<script src="/assets/detail.js"></script>
+<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="/assets/detail.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="https://sdk.mercadopago.com/js/v2"></script>

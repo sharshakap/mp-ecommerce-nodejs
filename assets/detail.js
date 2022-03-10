@@ -1,0 +1,88 @@
+console.log('weeena');
+
+// // Add SDK credentials
+
+const APIURL = '/';
+// REPLACE WITH YOUR PUBLIC KEY AVAILABLE IN: https://developers.mercadopago.com/panel
+const PUBLIC_KEY = 'TEST-efcbcded-34c5-494c-9a53-fbaa41af4f41';
+const mercadopago = new MercadoPago(PUBLIC_KEY, {
+	locale: 'es-CL', // The most common are: 'pt-BR', 'es-AR' and 'en-US'
+});
+
+const checkoutBTN = document.getElementById('checkout-btn');
+let quantity = document.getElementById('quantity');
+let price = document.getElementById('unit-price');
+const title = document.getElementById('product-description').innerHTML;
+const img = document.getElementById('product-image');
+
+// Handle call to backend and generate preference.
+checkoutBTN.onclick = () => {
+	checkoutBTN.setAttribute('disabled', true);
+	const orderData = {
+		quantity: quantity.value,
+		unit_price: price.innerHTML,
+		title,
+	};
+	console.log(orderData);
+
+	// fetch(APIURL + 'mercadopago/create_preference', {
+	// 	method: 'POST',
+	// 	headers: {
+	// 		'Content-Type': 'application/json',
+	// 	},
+	// 	body: JSON.stringify(orderData),
+	// })
+	// 	.then((response) => {
+	// 		return response.json();
+	// 	})
+	// 	.then((preference) => {
+	// 		createCheckoutButton(preference.id);
+
+	// 		$('.shopping-cart').fadeOut(500);
+	// 		setTimeout(() => {
+	// 			$('.container_payment').show(500).fadeIn();
+	// 		}, 500);
+	// 	})
+	// 	.catch((err) => {
+	// 		console.log(err);
+	// 		alert('Unexpected error');
+	// 		checkoutBTN.setAttribute('disabled', false);
+	// 	});
+};
+
+// Create preference when click on checkout button
+const createCheckoutButton = (preferenceId) => {
+	// Initialize the checkout
+	mercadopago.checkout({
+		preference: {
+			id: preferenceId,
+		},
+		render: {
+			container: '#button-checkout', // Class name where the payment button will be displayed
+			label: 'Pagar', // Change the payment button text (optional)
+		},
+		theme: {
+			elementsColor: '#8e44ad',
+		},
+	});
+};
+
+// Handle price update
+const updatePrice = () => {
+	quantity.value = 1;
+	const amount = quantity.value * price.innerHTML;
+	document.getElementById('cart-total').innerHTML = '$ ' + amount;
+	document.getElementById('summary-price').innerHTML = '$ ' + price.innerHTML;
+	document.getElementById('summary-quantity').innerHTML = quantity.value;
+	document.getElementById('summary-total').innerHTML = '$ ' + amount;
+};
+document.getElementById('quantity').addEventListener('change', updatePrice);
+updatePrice();
+
+document.getElementById('go-back').addEventListener('click', function () {
+	$('.container_payment').fadeOut(500);
+	setTimeout(() => {
+		$('.shopping-cart').show(500).fadeIn();
+	}, 500);
+	checkoutBTN.setAttribute('disabled', false);
+});
