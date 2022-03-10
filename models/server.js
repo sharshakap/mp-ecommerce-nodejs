@@ -1,11 +1,12 @@
 const express = require('express');
 const cors = require('cors');
 var exphbs = require('express-handlebars');
+const { PORT } = require('../utils/constantes');
 
 class Server {
 	constructor() {
 		this.app = express();
-		this.port = process.env.PORT ||8080;
+		this.port = PORT;
 		this.rutas = {
 			mercadopago: '/api/mercadopago',
 			views: '/',

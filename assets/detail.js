@@ -1,10 +1,9 @@
 // // Add SDK credentials
 
-const { APIURL } = require("../utils/constantes");
-
+const { APIURL, MP_PUBLIC_KEY } = require('../utils/constantes');
 
 // REPLACE WITH YOUR PUBLIC KEY AVAILABLE IN: https://developers.mercadopago.com/panel
-const PUBLIC_KEY = 'TEST-efcbcded-34c5-494c-9a53-fbaa41af4f41';
+const PUBLIC_KEY = MP_PUBLIC_KEY;
 const mercadopago = new MercadoPago(PUBLIC_KEY, {
 	locale: 'es-CL', // The most common are: 'pt-BR', 'es-AR' and 'en-US'
 });

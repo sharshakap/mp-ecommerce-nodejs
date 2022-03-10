@@ -2,7 +2,7 @@
 //SIN EMBARGO NO CUENTA CON TODAS LAS MEDIDAS DE SEGURIDAD o VALIDACIONES.
 
 const mercadopago = require('mercadopago');
-const { FRONTURL } = require('../utils/constantes');
+const { FRONTURL, NOTIFICATION_URL } = require('../utils/constantes');
 mercadopago.configure({
 	access_token: process.env.ACCESS_TOKEN_MERCADOPAGO,
 	integrator_id: process.env.INTEGRATOR_ID_MERCADOPAGO,
@@ -16,7 +16,7 @@ const createPreference = async (req, res) => {
 		//find producto and check price and stock!
 		//Integrator ID
 		const preference = {
-			// notification_url: process.env.NOTIFICATION_URL,
+			// notification_url: NOTIFICATION_URL,
 			external_reference: 'brsmilanez@hotmail.com',
 
 			items: [
