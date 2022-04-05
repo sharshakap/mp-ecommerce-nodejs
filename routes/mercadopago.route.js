@@ -19,10 +19,10 @@ router.post('/create_user_test', async (req, res) => {
 			{
 				headers: {
 					'Content-Type': 'application/json',
-					'Access-Token': 'Bearer ' + process.env.ACCESS_TOKEN,
+					'Access-Token': 'Bearer ' + process.env.ACCESS_TOKEN_MERCADOPAGO,
 				},
 				params: {
-					access_token: process.env.ACCESS_TOKEN,
+					access_token: process.env.ACCESS_TOKEN_MERCADOPAGO,
 				},
 			}
 		);

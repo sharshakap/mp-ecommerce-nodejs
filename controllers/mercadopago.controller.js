@@ -3,9 +3,10 @@
 
 const mercadopago = require('mercadopago');
 const { FRONTURL, NOTIFICATION_URL } = require('../utils/constantes');
+
 mercadopago.configure({
 	access_token: process.env.ACCESS_TOKEN_MERCADOPAGO,
-	integrator_id: process.env.INTEGRATOR_ID_MERCADOPAGO,
+	// integrator_id: process.env.INTEGRATOR_ID_MERCADOPAGO,
 });
 
 const createPreference = async (req, res) => {
